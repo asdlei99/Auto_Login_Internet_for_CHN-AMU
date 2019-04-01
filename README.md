@@ -1,5 +1,7 @@
 # 三军医大快速联网登陆
 陆军军医大学、西南医院等校园网区域，Windows下一键登录因特网。（[原版网关登陆](http://192.168.255.243/)）  
+![快速登陆演示](https://raw.githubusercontent.com/Mapaler/Auto_Login_Internet_for_CHN-AMU/master/pic/Preview.gif)
+
 除了在自己电脑上快速联网外，也可以将程序文件复制到U盘里，在其他电脑上也能一键登录。  
 程序储存的密码已Hash加密，不会泄露真实密码，所以也方便将账号借予他人使用。
 
