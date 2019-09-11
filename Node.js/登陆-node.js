@@ -72,10 +72,9 @@ Account.prototype.login = function()
 				"0MKKey":123456
 			});
 			var options={
-				hostname:"192.168.56.1",
-				port:8888,
-				//path:"/0.htm",
-				path:"http://192.168.255.243/0.htm",
+				hostname:"192.168.255.243",
+				port:80,
+				path:"/0.htm",
 				method:"POST",
 				headers:{
 					"Cache-Control": "no-cache",
@@ -92,9 +91,9 @@ Account.prototype.login = function()
 				}
 			}
 			var req=http.request(options,(res)=>{
-				let out = fs.createWriteStream("test.html");
+				//let out = fs.createWriteStream("test.html");
 				res.on("data",(chunk)=>{
-					out.write(chunk, function () {});
+					//out.write(chunk, function () {});
 					chunk = iconv.decode(chunk, 'GBK');
 					if (chunk.indexOf("登录成功窗")>=0)
 					{
@@ -149,7 +148,7 @@ Account.prototype.login = function()
 					})
 				});
 				res.on("end",()=>{
-					out.end();
+					//out.end();
 					//console.log("### end ##");
 				});
 			});
