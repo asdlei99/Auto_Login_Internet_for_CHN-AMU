@@ -5,9 +5,9 @@ Linux的执行
 ![Linux测试](pic/linux-preview.png)
 
 ## 如何安装
-1. 保存[登陆-node.js](登陆-node.js)文件  
-https://nodejs.org/zh-cn/
-1. 安装nodejs  
+1. 保存 [登陆-node.js](登陆-node.js) 文件  
+在“Raw”按钮上右键另存为
+1. 安装 Node.js 运行环境  
 https://nodejs.org/zh-cn/
 1. 在“登陆-node.js”的文件夹下用终端运行这行代码（安装依赖模块）。  
 	```shell
@@ -23,8 +23,8 @@ https://nodejs.org/zh-cn/
 ```shell
 node 登陆-node.js
 ```
-* Windows可以运行[Windows.bat](Windows.bat)（保证能用）
-* Mac可以尝试运行[Mac.command](Mac.command)（我没Mac，没试过）
+* Windows可以运行 [Windows.bat](Windows.bat) （保证能用）
+* Mac可以尝试运行 [Mac.command](Mac.command) （我没Mac，没试过）
 * Linux我也不懂，自己写一个吧，但是这个命令是能用的。
 
 ## 如何注销
