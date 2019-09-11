@@ -5,8 +5,8 @@ const fs = require('fs'); //文件操作
 const path = require('path'); //路径
 const crypto = require('crypto'); //HASH加密
 const http = require("http"); //网络获取
-const querystring = require("querystring");
-const iconv = require("iconv-lite");
+const querystring = require("querystring"); //post代码格式化
+const iconv = require("iconv-lite"); //读取GBK依赖项，第三方模块
 const stdin=process.stdin;
 const stdout=process.stdout;
 
@@ -115,6 +115,7 @@ Account.prototype.login = function()
 						else
 						{
 							console.log("登录成功窗发生改变，程序无法支持");
+							return;
 						}
 					}else if (chunk.indexOf("信息返回窗")>=0)
 					{
@@ -133,12 +134,15 @@ Account.prototype.login = function()
 						else
 						{
 							console.log("信息返回窗发生改变，程序无法支持");
+							return;
+
 						}
 					}
 					else
 					{
 						process.title = softname + "-登陆失败";
 						console.log("未知返回窗，程序无法支持。");
+						return;
 					}
 					console.log("\n按回车键立即退出");
 					stdin.on('readable', () => {

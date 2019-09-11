@@ -1,2 +1,3 @@
 /JScript/*.ini
 /Node.js/*.json
+/Node.js/node_modules
