@@ -13,7 +13,7 @@ const stdout=process.stdout;
 var ScriptFullName = process.argv[1]; //本脚本路径
 var ScriptParseName = path.parse(ScriptFullName); //本脚本路径分解
 var userInfoFileName = ScriptParseName.name + "-用户名与密码.json"; //储存用户名密码的文件名
-var userInfoFilePath = ScriptParseName.dir + "\\" + userInfoFileName; //该文件的具体路径
+var userInfoFilePath = ScriptParseName.dir + path.sep + userInfoFileName; //该文件的具体路径
 const waitS = 5;
 const ps=1,pid='1',calg='12345678';
 
@@ -29,7 +29,7 @@ Account.prototype.newAccount = function(callback)
 	stdin.on('data',(input)=>{
 		if(typeof input === 'string')
 		{
-			input = input.toString().slice(0,-2);
+			input = input.toString().replace(/[\r\n]/g,""); //不同系统下去掉最后的回车
 		}
 		if(!_this.username)
 		{ //没有用户名
@@ -69,12 +69,13 @@ Account.prototype.login = function()
 				"R1":0,
 				"R2":1,
 				"para":00,
-				"0MKKey":00
+				"0MKKey":123456
 			});
 			var options={
-				hostname:"192.168.255.243",
-				port:80,
-				path:"/0.htm",
+				hostname:"192.168.56.1",
+				port:8888,
+				//path:"/0.htm",
+				path:"http://192.168.255.243/0.htm",
 				method:"POST",
 				headers:{
 					"Cache-Control": "no-cache",
@@ -91,9 +92,9 @@ Account.prototype.login = function()
 				}
 			}
 			var req=http.request(options,(res)=>{
-				//let out = fs.createWriteStream("test.html");
+				let out = fs.createWriteStream("test.html");
 				res.on("data",(chunk)=>{
-					//out.write(chunk, function () {});
+					out.write(chunk, function () {});
 					chunk = iconv.decode(chunk, 'GBK');
 					if (chunk.indexOf("登录成功窗")>=0)
 					{
@@ -148,7 +149,7 @@ Account.prototype.login = function()
 					})
 				});
 				res.on("end",()=>{
-					//out.end();
+					out.end();
 					//console.log("### end ##");
 				});
 			});
@@ -221,7 +222,7 @@ fs.readFile(userInfoFilePath,{encoding:'utf-8'}, function (err,jsonStr) {
 		}
 	}else
 	{ //发生错误
-		if (err.errno == -4058)
+		if (err.code == 'ENOENT')
 		{ //文件不存在
 			console.log("这可能是您的第一次使用，请输入用户名与密码");
 		}else
