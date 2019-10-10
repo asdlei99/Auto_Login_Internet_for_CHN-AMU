@@ -9,7 +9,7 @@ Linux的执行
 在“Raw”按钮上右键另存为
 1. 安装 Node.js 运行环境  
 https://nodejs.org/zh-cn/
-1. 在“登陆-node.js”的文件夹下用终端运行这行代码（安装依赖模块）。  
+1. 在“登陆-node.js”的文件夹下用终端运行这行代码（安装GBK读取依赖模块，node居然不支持读取GBK🤔）。  
 	```shell
 	npm install iconv-lite
 	```
@@ -24,8 +24,8 @@ https://nodejs.org/zh-cn/
 node 登陆-node.js
 ```
 * Windows可以运行 [Windows.bat](Windows.bat) （保证能用）
-* Mac可以尝试运行 [Mac.command](Mac.command) （我没Mac，没试过）
-* Linux我也不懂，自己写一个吧，但是这个命令是能用的。
+* Mac我没有
+* Linux我也不懂
 
 ## 如何注销
-暂未开发，自己用网页注销吧
+暂未开发，毕竟也没有用Mac和Linux的告诉我如何快捷使用。自己用网页注销吧。

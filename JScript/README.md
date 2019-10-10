@@ -34,3 +34,8 @@
 本程序基于 *Windows Script Host*，少数用户修改了 js 文件的默认执行程序导致无法运行。  
 将 js 文件的打开方式修改为`Windows Based Script Host`即可。  
 ![更改打开方式](pic/Windows_Script_Host.png)
+
+或者改用BAT文件指定执行程序
+```bat
+wscript 登陆.js
+```
